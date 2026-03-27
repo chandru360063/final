@@ -12,7 +12,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install Python
+    - name: Setup Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
@@ -21,6 +21,10 @@ jobs:
       run: |
         pip install pyinstaller
         pip install pillow
+
+    # 🔍 Debug step (prevents "file not found" confusion)
+    - name: Show files
+      run: dir
 
     - name: Build EXE
       run: |
