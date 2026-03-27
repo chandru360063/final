@@ -22,13 +22,12 @@ jobs:
         pip install pyinstaller
         pip install pillow
 
-    # 🔍 Debug step (prevents "file not found" confusion)
     - name: Show files
-      run: dir
+      run: dir project
 
     - name: Build EXE
       run: |
-        pyinstaller --onefile --windowed --add-data "logo.png;." app.py
+        pyinstaller --onefile --windowed --add-data "project/logo.png;." project/app.py
 
     - name: Upload EXE
       uses: actions/upload-artifact@v4
